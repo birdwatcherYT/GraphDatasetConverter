@@ -47,7 +47,7 @@ function txt2dfs(filename)
 			fprintf(fileID, 'v %d %d\n', map(v), label(v));
 		end
 		for e=edges'
-			fprintf(fileID, 'e %d %d %d\n', map(e(1)), map(e(2)), edgelabel((connect(:,1)==e(1)) & (connect(:,2)==e(2))));
+			fprintf(fileID, 'e %d %d %d\n', map(e(1)), map(e(2)), unique(edgelabel((connect(:,1)==e(1)) & (connect(:,2)==e(2)))));
 		end
 		fprintf(fileID, '\n');
 	end
