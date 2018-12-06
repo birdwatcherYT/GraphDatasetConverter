@@ -59,7 +59,7 @@ function [visited,edges,map]=dfs(vertex, visited, edges, map, link)
 	visited=[visited; vertex];
 	temp = [];
 	for v=link{vertex}%既にvに訪問したが, 辺(v,vertex)には訪問してないv
-		if ismember(v,visited) && sum((v==edges(:,2)).*(vertex==edges(:,1)))==0 && sum((v==edges(:,1)).*(vertex==edges(:,2)))==0
+		if ismember(v,visited) && (isempty(edges) || (sum((v==edges(:,2)).*(vertex==edges(:,1)))==0 && sum((v==edges(:,1)).*(vertex==edges(:,2)))==0))
 			temp=[temp;[map(v), v]];
 		end
 	end
